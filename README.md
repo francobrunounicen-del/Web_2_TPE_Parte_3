@@ -1,15 +1,19 @@
-# Web_2_TPE_Parte_3
+## Web_2_TPE_Parte_3
 
 Esta API REST permite consultar y administrar videos pertenecientes a distintas categorías de un catálogo educativo.
 
-# Endpoints
+## Endpoints
 
-## Obtener todos los videos [Obtiene la colección completa de videos.]
+# Obtener todos los videos [Obtiene la colección completa de videos.]
 
 Método>>GET>>/video
+
 Ejemplo
+
 GET /api/video
+
 Respuesta exitosa (200 OK)
+
 [
   {
     "id_video": 1,
@@ -24,11 +28,14 @@ Respuesta exitosa (200 OK)
   }
 ]
 
-## Obtener un video por ID [Obtiene la información de un video específico.]
+# Obtener un video por ID [Obtiene la información de un video específico.]
 
 Método>>GET>>/video/
+
 Ejemplo
+
 GET /api/video/1
+
 Respuesta exitosa (200 OK)
 {
   "id_video": 1,
@@ -41,16 +48,21 @@ Respuesta exitosa (200 OK)
   "id_categoria": 1,
   "nombre": "Educacion"
 }
+
 Respuesta de error (404 Not Found)
+
 "El video no existe"
 
-## Filtrar videos por categoría [Permite obtener únicamente los videos pertenecientes a una categoría determinada.]
+# Filtrar videos por categoría [Permite obtener únicamente los videos pertenecientes a una categoría determinada.]
 
 Método>>GET>>/video?categoria=id_categoria
 
 Ejemplo
+
 GET /api/video?categoria=1
+
 Respuesta exitosa (200 OK)
+
 [
   {
     "id_video": 1,
@@ -59,22 +71,30 @@ Respuesta exitosa (200 OK)
   }
 ]
 
-## Ordenar videos [Permite ordenar la colección de videos por un atributo determinado.]
+# Ordenar videos [Permite ordenar la colección de videos por un atributo determinado.]
 
 Método>>GET>>/video?sort=campo&order=ASC|DESC
 
 Ejemplo
+
 GET /api/video?sort=titulo&order=ASC
+
 GET /api/video?sort=fecha_publicacion&order=DESC
+
 Parámetros
+
 Parámetro	Descripción
+
 sort	Campo por el cual ordenar
+
 order	ASC o DESC
 
-## Crear un video [Permite agregar un nuevo video al catálogo.]
+# Crear un video [Permite agregar un nuevo video al catálogo.]
 
 Método>>POST>>/video
+
 Body (JSON)
+
 {
   "titulo": "Nuevo Video",
   "autor": "Autor",
@@ -84,18 +104,25 @@ Body (JSON)
   "url": "https://youtube.com/video",
   "id_categoria": 1
 }
+
 Respuesta exitosa (201 Created)
+
 Devuelve el video recién creado.
+
 Respuesta de error (400 Bad Request)
+
 "Falta completar datos"
 
-## Modificar un video [Permite actualizar un video existente.]
+# Modificar un video [Permite actualizar un video existente.]
 
 Método>>PUT>>/video/
 
 Ejemplo
+
 PUT /api/video/1
+
 Body (JSON)
+
 {
   "titulo": "Video actualizado",
   "autor": "Autor actualizado",
@@ -105,7 +132,9 @@ Body (JSON)
   "url": "https://youtube.com/nuevo",
   "id_categoria": 1
 }
+
 Respuesta exitosa (200 OK)
+
 Devuelve el video actualizado.
 Respuesta de error (404 Not Found)
 "El video con el id=1 no existe"
