@@ -2,8 +2,9 @@
 
 Esta API REST permite consultar y administrar videos pertenecientes a distintas categorías de un catálogo educativo.
 
-#Endpoints
-Obtener todos los videos [Obtiene la colección completa de videos.]
+# Endpoints
+
+## Obtener todos los videos [Obtiene la colección completa de videos.]
 
 Método>>GET>>/video
 Ejemplo
@@ -23,7 +24,7 @@ Respuesta exitosa (200 OK)
   }
 ]
 
-Obtener un video por ID[Obtiene la información de un video específico.]
+## Obtener un video por ID [Obtiene la información de un video específico.]
 
 Método>>GET>>/video/
 Ejemplo
@@ -43,7 +44,7 @@ Respuesta exitosa (200 OK)
 Respuesta de error (404 Not Found)
 "El video no existe"
 
-Filtrar videos por categoría [Permite obtener únicamente los videos pertenecientes a una categoría determinada.]
+## Filtrar videos por categoría [Permite obtener únicamente los videos pertenecientes a una categoría determinada.]
 
 Método>>GET>>/video?categoria=id_categoria
 
@@ -58,7 +59,7 @@ Respuesta exitosa (200 OK)
   }
 ]
 
-Ordenar videos [Permite ordenar la colección de videos por un atributo determinado.]
+## Ordenar videos [Permite ordenar la colección de videos por un atributo determinado.]
 
 Método>>GET>>/video?sort=campo&order=ASC|DESC
 
@@ -70,7 +71,7 @@ Parámetro	Descripción
 sort	Campo por el cual ordenar
 order	ASC o DESC
 
-Crear un video [Permite agregar un nuevo video al catálogo.]
+## Crear un video [Permite agregar un nuevo video al catálogo.]
 
 Método>>POST>>/video
 Body (JSON)
@@ -88,7 +89,7 @@ Devuelve el video recién creado.
 Respuesta de error (400 Bad Request)
 "Falta completar datos"
 
-Modificar un video [Permite actualizar un video existente.]
+## Modificar un video [Permite actualizar un video existente.]
 
 Método>>PUT>>/video/
 
