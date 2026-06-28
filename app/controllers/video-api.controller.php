@@ -10,12 +10,6 @@ class VideoApiController {
     }
 
     public function getVideo($req, $res) {
-        $video = $this->model->getAll();
-        // respondo issues con 200 OK
-        return $res->json($video, 200);
-    }
-
-    public function getVideo($req, $res) {
         $categoria = $req->query->categoria ?? null;
         $sort = $req->query->sort ?? null;
         $order = $req->query->order ?? 'ASC';
