@@ -27,12 +27,18 @@ class VideoModel {
    }
 
    public function getOrdered($atributo, $orden) {
-      if ($orden != 'ASC' && $orden != 'DESC') {
-         $orden = 'ASC';}
+      $atributosPermitidos = ['id_video','titulo','autor','duracion','fecha_publicacion'];
+      if (!in_array($atributo, $atributosPermitidos)) {
+         $atributo = 'titulo';
+      }
+      $orden = strtoupper($orden);
+      if (!in_array($orden, ['ASC', 'DESC'])) {
+         $orden = 'ASC';
+      }
       $query = $this->db->prepare("SELECT v.*, c.nombre
                                     FROM video v
                                     JOIN categoria c
-                                    ON v.id_categoria = c.id_categoria
+                                          ON v.id_categoria = c.id_categoria
                                     ORDER BY $atributo $orden");
       $query->execute();
       return $query->fetchAll(PDO::FETCH_OBJ);
